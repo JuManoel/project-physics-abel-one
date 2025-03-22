@@ -1,0 +1,8 @@
+customtkinter
+matplotlib
+sympy
+pandas
+python-dotenv
+google-genai
+pyinstaller
+PyQt6

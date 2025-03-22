@@ -1,0 +1,5 @@
+.env
+*.spec
+dist/
+build/FisicaConAbel/
+__pycache__/
