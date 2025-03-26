@@ -1,6 +1,7 @@
 from customtkinter import CTk, CTkLabel,CTkEntry,CTkButton
 from tkinter import Menu
 from build.grafic_interval import Grafic
+from .message_box_error import show_error
 
 class ShowGraficsInterval:
     def __init__(self):
@@ -60,12 +61,22 @@ class ShowGraficsInterval:
 
 
     def generarGrafica(self):
-        a = float(self.acceleration_entry.get())
-        v = float(self.velocity_entry.get())
-        p = float(self.position_entry.get())
-        t_i = float(self.tiempo_inical_entry.get())
-        t_f = float(self.tiempo_final_entry.get())
-        Grafic(a, v, p, (t_i, t_f))
+        try:
+
+            a = float(self.acceleration_entry.get())
+            v = float(self.velocity_entry.get())
+            p = float(self.position_entry.get())
+            t_i = float(self.tiempo_inical_entry.get())
+            t_f = float(self.tiempo_final_entry.get())
+            if t_i >= t_f:
+                show_error("El tiempo inicial debe ser menor al tiempo final")
+                return
+            Grafic(a, v, p, (t_i, t_f))
+        except ValueError:
+            show_error("Por favor ingrese valores validos")
+            return
+        except Exception as e:
+            show_error(str(e))
         
     def on_closing(self):
         self.root.destroy()

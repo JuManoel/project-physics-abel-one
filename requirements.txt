@@ -6,3 +6,5 @@ python-dotenv
 google-genai
 pyinstaller
 PyQt6
+CTkMessagebox
+tksheet

@@ -12,21 +12,25 @@ project1/
 ├── build/
 │   ├── grafic_equations.py
 │   ├── grafic_interval.py
-│   └── grafic.py
+│   ├── grafic.py
+│   └── table.py
 │
 ├── interface/
 │   ├── calculator.py
 │   ├── chat.py
+│   ├── message_box_error.py
 │   ├── show_grafics_equations.py
 │   ├── show_grafics_interval.py
-│   └── show_grafics.py
+│   ├── show_grafics.py
+│   └── show_table.py
 │
 ├── api/
 │   └── gemini.py
 │
 ├── main.py
 ├── .env
-└── requirements.txt
+├── requirements.txt
+└── .gitignore
 ```
 
 ## Requisitos
@@ -56,6 +60,7 @@ python main.py
 - **Generar Gráficas**: Genera gráficos simples.
 - **Generar Gráficas y Ecuaciones**: Genera gráficos junto con sus ecuaciones.
 - **Generar Gráficas con Intervalos**: Genera gráficos con intervalos específicos.
+- **Generar Tabla de Valores**: Genera una tabla de valores de cinemática.
 - **Chat**: Proporciona una interfaz de chat.
 - **Calculadora**: Proporciona una calculadora básica.
 

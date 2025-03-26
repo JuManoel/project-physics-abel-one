@@ -1,6 +1,7 @@
 from customtkinter import CTk, CTkLabel, CTkEntry, CTkButton, CTkFrame, CTkTextbox, CTkScrollbar
 from tkinter import Menu
 from sympy import symbols, diff, integrate, Eq, solve
+from .message_box_error import show_error
 
 class CalculatorApp:
     def __init__(self):
@@ -58,7 +59,7 @@ class CalculatorApp:
                 result =solve(Eq(eval(expr), 0), x)
                 self.result_text.insert("end", f"{expr} = {result[0] if len(result) == 1 else result}\n")
         except Exception as e:
-            self.result_text.insert("end", f"Error: {e}\n")
+            show_error(str(e))
 
     def calculate_derivative(self):
         expr = self.entry.get()
@@ -67,7 +68,7 @@ class CalculatorApp:
             result = diff(eval(expr), x)
             self.result_text.insert("end", f"Derivada: {result}\n")
         except Exception as e:
-            self.result_text.insert("end", f"Error: {e}\n")
+            show_error(str(e))
 
     def calculate_integral(self):
         expr = self.entry.get()
@@ -76,4 +77,4 @@ class CalculatorApp:
             result = integrate(eval(expr), x)
             self.result_text.insert("end", f"Integral: {result}\n")
         except Exception as e:
-            self.result_text.insert("end", f"Error: {e}\n")
+            show_error(str(e))

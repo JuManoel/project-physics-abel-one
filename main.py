@@ -5,7 +5,7 @@ from interface.show_grafics_interval import ShowGraficsInterval
 from interface.show_grafics_equations import ShowGraficsWithEquations
 from interface.chat import ChatApp
 from interface.calculator import CalculatorApp
-
+from interface.show_table import ShowTableInterval
 class Main:
     def __init__(self):
         self.root = CTk()
@@ -25,6 +25,7 @@ class Main:
         cinematica_menu.add_command(label="Generar Graficas", command=self.generar_graficas)
         cinematica_menu.add_command(label="Generar Graficas y Ecuaciones", command=self.generar_graficas_y_ecuaciones)
         cinematica_menu.add_command(label="Generar Graficas con intervalos", command=self.generar_graficas_con_intervalos)
+        cinematica_menu.add_command(label="Generar Generar Tabla de Valores", command=self.generar_tabla_de_valores)
         cinematica_menu.add_separator()
         cinematica_menu.add_command(label="Exit", command=self.on_closing)
         menu.add_cascade(label="Cinematica", menu=cinematica_menu)
@@ -51,6 +52,9 @@ class Main:
 
     def generar_graficas_con_intervalos(self):
         ShowGraficsInterval()
+    
+    def generar_tabla_de_valores(self):
+        ShowTableInterval()
     
     def chat(self):
         ChatApp()

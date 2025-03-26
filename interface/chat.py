@@ -2,10 +2,15 @@ from customtkinter import CTk, CTkLabel,CTkEntry,CTkButton, CTkFrame, CTkTextbox
 from tkinter import Menu
 from tkinter import messagebox
 from api.gemini import GeminiAPI
+from .message_box_error import show_error
 
 class ChatApp:
     def __init__(self):
-        self.api = GeminiAPI()
+        try:
+            self.api = GeminiAPI()            
+        except Exception as e:
+            show_error("Problema al cargar el modelo de Gemini")
+            return   
         self.root = CTk()
         self.root.title("Chat")
         self.root.geometry("300x300")

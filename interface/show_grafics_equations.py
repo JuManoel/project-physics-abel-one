@@ -1,6 +1,7 @@
 from customtkinter import CTk, CTkLabel,CTkEntry,CTkButton
 from tkinter import Menu
 from build.grafic_equations import Grafic
+from .message_box_error import show_error
 
 class ShowGraficsWithEquations:
     def __init__(self):
@@ -47,10 +48,15 @@ class ShowGraficsWithEquations:
         self.root.destroy()
     
     def generarGrafica(self):
-        a = float(self.acceleration_entry.get())
-        v = float(self.velocity_entry.get())
-        p = float(self.position_entry.get())
-        Grafic(a, v, p)
+        try:
+            a = float(self.acceleration_entry.get())
+            v = float(self.velocity_entry.get())
+            p = float(self.position_entry.get())
+            Grafic(a, v, p)
+        except ValueError:
+            show_error("Los valores deben ser numericos")
+        except Exception as e:
+            show_error(str(e))
         
     def on_closing(self):
         self.root.destroy()
